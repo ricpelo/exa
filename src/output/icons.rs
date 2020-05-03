@@ -187,10 +187,10 @@ fn icon(file: &File) -> char {
                 "iso"       => '\u{e271}',
                 "lock"      => '\u{f023}',
                 "swift"     => '\u{e755}',
-                _           => '\u{f15b}'
+                _           => '\u{f016}'
             }
         } else {
-            '\u{f15b}'
+            '\u{f016}'
         }
     }
 }
