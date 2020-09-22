@@ -28,7 +28,7 @@ pub fn painted_icon(file: &File, style: &FileStyle) -> String {
     let file_icon = icon(&file).to_string();
     let painted = style.exts
             .colour_file(&file)
-            .map_or(file_icon.to_string(), |c| { 
+            .map_or(file_icon.to_string(), |c| {
                 // Remove underline from icon
                 if c.is_underline {
                     match c.foreground {
@@ -36,7 +36,7 @@ pub fn painted_icon(file: &File, style: &FileStyle) -> String {
                         None => Style::default().paint(file_icon).to_string(),
                     }
                 } else {
-                    c.paint(file_icon).to_string() 
+                    c.paint(file_icon).to_string()
                 }
             });
     format!("{}  ", painted)
@@ -46,7 +46,7 @@ fn icon(file: &File) -> char {
     let extensions = Box::new(FileExtensions);
     if file.points_to_directory() { '\u{f115}' }
     else if let Some(icon) = extensions.icon_file(file) { icon }
-    else { 
+    else {
         if let Some(ext) = file.ext.as_ref() {
             match ext.as_str() {
                 "ai"        => '\u{e7b4}',
@@ -185,6 +185,7 @@ fn icon(file: &File) -> char {
                 "groovy"    => '\u{e775}',
                 "iso"       => '\u{e271}',
                 "lock"      => '\u{f023}',
+                "swift"     => '\u{e755}',
                 _           => '\u{f15b}'
             }
         } else {
